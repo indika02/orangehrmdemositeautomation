@@ -1,4 +1,4 @@
-const testData = require('../config/test-data.json');
+const { expect } = require('@playwright/test');
 
 class Loginpage{
 
@@ -7,11 +7,10 @@ class Loginpage{
         this.username='#username';
         this.password='#password';
         this.loginbutton='#fm1 > div > div > button';
-        // this.loginUrl=testData.urls.loginUrl;
+        this.usernameicon='//*[@id="common-header"]/div/ul[2]/li[3]/a';
+        this.logoutLink='//*[@id="common-header"]/div/ul[2]/li[3]/div/ul/li/a';
+        this.loginpageAlert=page.locator('//*[@id="status2success"]/div[2]/h6');
     }
-    // async goto(){
-    //     await this.page.goto(this.loginUrl);
-    // }
 
     async login(username,password){
         await this.page.fill(this.username,username);
@@ -20,7 +19,16 @@ class Loginpage{
         await  this.page.waitForTimeout(80000);
     }
 
-  
+    async logout(){
+        await this.page.hover(this.usernameicon);
+        await this.page.waitForTimeout(10000);
+        await this.page.click(this.logoutLink);
+        await this.page.waitForTimeout(10000);
+    }
+
+    async verifyLogoutAlert(){
+        await expect(this.loginpageAlert).toHaveText('You have successfully logout from the system',{ timeout: 90000 });  
+    }
 }
 
 module.exports={Loginpage};

@@ -11,7 +11,6 @@ test.describe('Login page',()=>{
         const commonPage=new Common(page);
         const loginPage=new Loginpage(page);
         const dashBoard=new DashBoard(page);
-        const loginUrl=testData.urls.loginUrl;
 
         await test.step('Naviagate to the loginpage',async()=>{
             await commonPage.goto();
@@ -23,10 +22,14 @@ test.describe('Login page',()=>{
 
         await test.step('Verify the successful login',async()=>{
             await dashBoard.verifyModuleName();
+        }) 
+
+        await test.step('Logout from the system',async()=>{
+            await loginPage.logout();
         })
-        await test.step('Verify the successful login',async()=>{
-            await dashBoard.verifyModuleName();
+
+        await test.step('Verify logout alert message',async()=>{
+            await loginPage.verifyLogoutAlert();
         })
-        
     })
 })
