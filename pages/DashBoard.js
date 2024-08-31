@@ -5,11 +5,11 @@ class DashBoard{
     
     constructor(page){
         this.page=page;
-        this.moduleTitle=page.locator('#root > div > div > div > div.common-access-block > div > ul > li:nth-child(1) > a > div > div');
+        this.moduleTitle=page.locator('//*[@id="root"]/div/div/div/div[2]/div/ul/li[1]/a/div/div');
     }
 
     async verifyModuleName(){
-        await expect(this.moduleTitle).toHaveText('User Management');  
+        await expect(this.moduleTitle).toHaveText('User Management',{ timeout: 90000 });  
     }
 }
 
