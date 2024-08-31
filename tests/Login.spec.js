@@ -24,6 +24,9 @@ test.describe('Login page',()=>{
         await test.step('Verify the successful login',async()=>{
             await dashBoard.verifyModuleName();
         })
+        await test.step('Verify the successful login',async()=>{
+            await dashBoard.verifyModuleName();
+        })
         
     })
 })
