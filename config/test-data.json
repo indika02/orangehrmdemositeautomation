@@ -1,11 +1,13 @@
 {
     "validCredentials": {
+        "sdp-admin": {
       "username": "robi.admin3",
       "password": "Testdata#12345"
+        }
     },
     "invalidCredentials": {
-      "username": "invalidUsername",
-      "password": "invalidPassword"
+      "username": "dfgfdfsdsds",
+      "password": "Testdata#1234523"
     },
     "urls": {
       "loginUrl": "https://robisdpup.hsenidmobile.com/cas/login"
