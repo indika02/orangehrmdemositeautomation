@@ -5,12 +5,25 @@ const testData=require('../config/test-data.json');
 const { Common } = require('../utils/Common');
 
 test.describe('Login page',()=>{
-    
-    test('Registered users can be able to login successfully by using valid credentials',async({page})=>{
 
-        const commonPage=new Common(page);
-        const loginPage=new Loginpage(page);
-        const dashBoard=new DashBoard(page);
+    let page; 
+    let commonPage;
+    let loginPage;
+    let dashBoard;
+
+    test.beforeAll(async ({ browser }) => {
+      
+        const context = await browser.newContext();
+        page = await context.newPage();
+        
+        commonPage = new Common(page);
+        loginPage = new Loginpage(page);
+        dashBoard = new DashBoard(page);
+    });
+
+    // test.describe.configure({ mode: 'serial' });
+    
+    test('SDP Admin can be able to login successfully by using valid credentials',async()=>{
 
         await test.step('Naviagate to the loginpage',async()=>{
             await commonPage.goto();
@@ -21,11 +34,11 @@ test.describe('Login page',()=>{
         })
 
         await test.step('Verify the successful login',async()=>{
-            await dashBoard.verifyModuleName();
+            await dashBoard.verifyModuleName('User Management');
         }) 
 
         await test.step('Logout from the system',async()=>{
-            await loginPage.logout();
+            await dashBoard.adminLogout();
         })
 
         await test.step('Verify logout alert message',async()=>{
@@ -33,10 +46,51 @@ test.describe('Login page',()=>{
         })
     })
 
-    test('login to the system by using invalid username and password',async({page})=>{
+    test('SP user can be able to login successfully by using valid credentials',async()=>{
 
-        const commonPage=new Common(page);
-        const loginPage=new Loginpage(page);
+        await test.step('Naviagate to the loginpage',async()=>{
+            await commonPage.goto();
+        })
+
+        await test.step('Login to the user account by using valid credentials',async()=>{
+            await loginPage.login(testData.validCredentials['sp-user'].username,testData.validCredentials['sp-user'].password);
+        })
+
+        await test.step('Verify the successful login',async()=>{
+            await dashBoard.verifyModuleName('Provisioning');
+        }) 
+
+        await test.step('Logout from the system',async()=>{
+            await dashBoard.spLogout();
+        })
+        await test.step('Verify logout alert message',async()=>{
+            await loginPage.verifyLogoutPageAlert('You have successfully logout from the system');
+        })
+    })
+
+    test('Reporting admin can be able to login successfully by using valid credentials',async()=>{
+
+        await test.step('Naviagate to the loginpage',async()=>{
+            await commonPage.goto();
+        })
+
+        await test.step('Login to the user account by using valid credentials',async()=>{
+            await loginPage.login(testData.validCredentials['reporting-admin'].username,testData.validCredentials['reporting-admin'].password);
+        })
+
+        await test.step('Verify the successful login',async()=>{
+            await dashBoard.verifyModuleName('Reporting');
+        }) 
+
+        await test.step('Logout from the system',async()=>{
+            await dashBoard.adminLogout();
+        })
+        await test.step('Verify logout alert message',async()=>{
+            await loginPage.verifyLogoutPageAlert('You have successfully logout from the system');
+        })
+    })
+
+    test('login to the system by using invalid username and password',async()=>{
 
         await test.step('Naviagate to the loginpage',async()=>{
             await commonPage.goto();
@@ -49,6 +103,8 @@ test.describe('Login page',()=>{
         })
 
     })
+
+
 
 
 })

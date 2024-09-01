@@ -3,6 +3,18 @@
         "sdp-admin": {
       "username": "robi.admin3",
       "password": "Testdata#12345"
+        },
+        "sp-user":{
+            "username":"2022r1",
+            "password":"Test@54321"
+        },
+        "reporting-admin":{
+            "username":"ccadminx",
+            "password":"Testdata@12345"
+        },
+        "read-only-admin":{
+            "username":"",
+            "password":""
         }
     },
     "invalidCredentials": {
