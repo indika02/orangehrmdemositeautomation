@@ -14,7 +14,7 @@ class Loginpage{
         await this.page.fill(this.username,username);
         await this.page.fill(this.password,password);
         await this.page.click(this.loginbutton);
-        await  this.page.waitForTimeout(50000);
+        await  this.page.waitForTimeout(7000);
     }
 
     async verifyLogoutPageAlert(expectedText) {

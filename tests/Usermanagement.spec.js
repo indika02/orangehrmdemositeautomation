@@ -51,7 +51,7 @@ test.describe('User Management',()=>{
     })
 
 
-    test('Availability of User management portal tabs',async()=>{
+    test('Availability of system users search box by firstname',async()=>{
 
         await test.step('Naviagate to the loginpage',async()=>{
             await commonPage.goto();
@@ -64,12 +64,9 @@ test.describe('User Management',()=>{
             await dashBoard.clickUserManagementIcon();
         })
 
-        await test.step('Click the App creators tab',async()=>{
-            await userManagement.clickAppCreatorsTab();
-        })
-
-        await test.step('Click the Appstore users tab',async()=>{
-            await userManagement.clickAppstoreUsersTab();
+        await test.step('Enter a first name of a system user',async()=>{
+            await userManagement.enterSearchInput('123cust');
+            await userManagement.enterSearchInput('robicust');
         })
 
         await test.step('Logout from the system',async()=>{

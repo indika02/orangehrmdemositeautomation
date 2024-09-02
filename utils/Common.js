@@ -11,6 +11,10 @@ class Common{
     async goto(){
         await this.page.goto(this.testData.urls.loginUrl);
     }
+
+    async clearTextBox(locator){
+        await this.page.locator(locator).fill('');
+    }
 }
 
 
