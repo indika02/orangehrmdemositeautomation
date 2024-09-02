@@ -10,6 +10,7 @@ class DashBoard{
         this.adminLogoutLink='//*[@id="common-header"]/div/ul[2]/li[3]/div/ul/li/a';
         this.spLogoutLink='//*[@id="common-header"]/div/ul[2]/li[3]/div/ul/li[2]/a';
         this.moduleIcon='//*[@id="common-header"]/div/ul[2]/li[2]/a';
+        this.userManagementIcon='//*[@id="root"]/div/div/div/div[2]/div/ul/li[1]/a';
     }
 
     async adminLogout(){
@@ -35,7 +36,10 @@ class DashBoard{
         await this.page.waitForTimeout(6000);
     }
 
-
+    async clickUserManagementIcon(){
+        await this.page.click(this.userManagementIcon);
+        await this.page.waitForTimeout(6000);
+    }
 }
 
 module.exports={DashBoard};
