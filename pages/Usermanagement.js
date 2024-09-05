@@ -10,6 +10,7 @@ class Usermanagement{
         this.searchBoxInput='//*[@id="root"]/div/div/div[2]/div/div/div[1]/div[1]/div[1]/span/input';
         this.filterIcon='//*[@id="root"]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/span/a/i';
         this.filterByUsername='#root > div > div > div.wrapper > div > div > div.search-bar.row > div.col-md-6 > div.col-xs-2.search-input.filtering-method > span > ul > li:nth-child(2) > a';
+        this.userDetailsRow='#root > div > div > div.wrapper > div > div > div.list-view > div > div > table > tbody > tr:nth-child(1)';
     }
 
 
@@ -32,6 +33,11 @@ class Usermanagement{
         await this.page.hover(this.filterIcon);
         await this.page.click(this.filterByUsername);
         await this.page.locator(this.searchBoxInput).fill(searchInput);
+    }
+
+    async viewUserDetails(){
+        await this.page.click(this.userDetailsRow);
+        await this.page.waitForTimeout(6000);
     }
 
 }

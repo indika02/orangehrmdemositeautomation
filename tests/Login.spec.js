@@ -68,14 +68,14 @@ test.describe('Login page',()=>{
         })
     })
 
-    test('Reporting admin can be able to login successfully by using valid credentials',async()=>{
+    test('Customer-care admin can be able to login successfully by using valid credentials',async()=>{
 
         await test.step('Naviagate to the loginpage',async()=>{
             await commonPage.goto();
         })
 
         await test.step('Login to the user account by using valid credentials',async()=>{
-            await loginPage.login(testData.validCredentials['reporting-admin'].username,testData.validCredentials['reporting-admin'].password);
+            await loginPage.login(testData.validCredentials['customer-care-admin'].username,testData.validCredentials['customer-care-admin'].password);
         })
 
         await test.step('Verify the successful login',async()=>{

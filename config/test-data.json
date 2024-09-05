@@ -8,9 +8,9 @@
             "username":"2022r1",
             "password":"Test@54321"
         },
-        "reporting-admin":{
+        "customer-care-admin":{
             "username":"ccadminx",
-            "password":"Testdata@12345"
+            "password":"Testdata@09876"
         },
         "read-only-admin":{
             "username":"",
