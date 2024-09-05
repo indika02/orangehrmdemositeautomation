@@ -11,6 +11,8 @@ class DashBoard{
         this.spLogoutLink='//*[@id="common-header"]/div/ul[2]/li[3]/div/ul/li[2]/a';
         this.moduleIcon='//*[@id="common-header"]/div/ul[2]/li[2]/a';
         this.userManagementIcon='//*[@id="root"]/div/div/div/div[2]/div/ul/li[1]/a';
+        this.SPprovisioningIcon='//*[@id="root"]/div/div/div/div[2]/div/ul/li[1]/a';
+        this.homeIcon='//*[@id="bs-example-navbar-collapse-1"]/ul/li[1]/a';
     }
 
     async adminLogout(){
@@ -39,6 +41,15 @@ class DashBoard{
     async clickUserManagementIcon(){
         await this.page.click(this.userManagementIcon);
         await this.page.waitForTimeout(6000);
+    }
+
+    async clickSPprovisioningIcon(){
+        await this.page.click(this.SPprovisioningIcon);
+        await this.page.waitForTimeout(3000);
+    }
+
+    async clickHomeIcon(){
+        await this.page.click(this.homeIcon);
     }
 }
 
