@@ -16,18 +16,18 @@ class Usermanagement{
 
     async clickAppCreatorsTab(){
         await this.page.click(this.appCreatorsTab);
-        await this.page.waitForTimeout(6000);
+        // await this.page.waitForTimeout(6000);
     }
 
 
     async clickAppstoreUsersTab(){
         await this.page.click(this.appstoreUsersTab);
-        await this.page.waitForTimeout(6000);
+        // await this.page.waitForTimeout(6000);
     }
 
     async enterSearchInput(searchInput){
         await this.page.locator(this.searchBoxInput).fill(searchInput);
-        await this.page.waitForTimeout(6000);
+        // await this.page.waitForTimeout(6000);
         await this.commonPage.clearTextBox(this.searchBoxInput);
         await this.page.waitForTimeout(1000);
         await this.page.hover(this.filterIcon);
@@ -37,7 +37,7 @@ class Usermanagement{
 
     async viewUserDetails(){
         await this.page.click(this.userDetailsRow);
-        await this.page.waitForTimeout(6000);
+        // await this.page.waitForTimeout(6000);
     }
 
 }

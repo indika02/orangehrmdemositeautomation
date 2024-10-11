@@ -17,16 +17,16 @@ class DashBoard{
 
     async adminLogout(){
         await this.page.hover(this.usernameicon);
-        await this.page.waitForTimeout(7000);
+        // await this.page.waitForTimeout(7000);
         await this.page.click(this.adminLogoutLink);
-        await this.page.waitForTimeout(7000);
+        // await this.page.waitForTimeout(7000);
     }
 
     async spLogout(){
         await this.page.hover(this.usernameicon);
-        await this.page.waitForTimeout(7000);
+        // await this.page.waitForTimeout(7000);
         await this.page.click(this.spLogoutLink);
-        await this.page.waitForTimeout(7000);
+        // await this.page.waitForTimeout(7000);
     }
 
     async verifyModuleName(expectedText){

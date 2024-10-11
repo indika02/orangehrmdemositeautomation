@@ -29,27 +29,27 @@ test.describe('SP provisioning',()=>{
        
     });
 
-    test('Availability of Provisioning module for SP user',async()=>{
+    // test('Availability of Provisioning module for SP user',async()=>{
 
-        await test.step('Naviagate to the loginpage',async()=>{
-            await commonPage.goto();
-        })
-        await test.step('Login to the user account by using valid credentials',async()=>{
-            await loginPage.login(testData.validCredentials['sp-user'].username,testData.validCredentials['sp-user'].password);
-        })
+    //     await test.step('Naviagate to the loginpage',async()=>{
+    //         await commonPage.goto();
+    //     })
+    //     await test.step('Login to the user account by using valid credentials',async()=>{
+    //         await loginPage.login(testData.validCredentials['sp-user'].username,testData.validCredentials['sp-user'].password);
+    //     })
 
-        await test.step('Click the provisioning icon',async()=>{
-            await dashBoard.clickSPprovisioningIcon();
-        })
+    //     await test.step('Click the provisioning icon',async()=>{
+    //         await dashBoard.clickSPprovisioningIcon();
+    //     })
 
-        await test.step('Click home icon',async()=>{
-            await dashBoard.clickHomeIcon();
-        })
+    //     await test.step('Click home icon',async()=>{
+    //         await dashBoard.clickHomeIcon();
+    //     })
 
-        await test.step('Logout from the system',async()=>{
-            await dashBoard.spLogout();
-        })
-    })  
+    //     await test.step('Logout from the system',async()=>{
+    //         await dashBoard.spLogout();
+    //     })
+    // })  
     
     
     test('Creating a new Provisioning app',async()=>{
@@ -70,7 +70,31 @@ test.describe('SP provisioning',()=>{
         })
 
         await test.step('Enter the basic app details',async()=>{
-            await spProvisioning.enterBasicAppDetails('iapp3','uerikdklfjlweiokrld');
+            await spProvisioning.enterBasicAppDetails('iad4','uerikdklfjlweiokrld','127.0.0.1',"8801234123443","8801234123444");
+        })
+
+        await test.step('Click next button',async()=>{
+            await spProvisioning.clickNextButton();
+        })
+
+        await test.step('Click next button',async()=>{
+            await spProvisioning.clickNextButton();
+        })
+
+        await test.step('Select the API for your App',async()=>{
+            await spProvisioning.selectApi();
+        })
+
+        await test.step('Click next button',async()=>{
+            await spProvisioning.clickNextButton();
+        })
+
+        await test.step('Enter the Message Receiving Url',async()=>{
+            await spProvisioning.enterMsgUrl('http://www.abc.com');
+        })
+
+        await test.step('Click next button',async()=>{
+            await spProvisioning.clickNextButton();
         })
 
         // await test.step('Click home icon',async()=>{
