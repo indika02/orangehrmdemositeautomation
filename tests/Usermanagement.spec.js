@@ -72,7 +72,7 @@ test.describe('User Management',()=>{
         await test.step('Logout from the system',async()=>{
             await dashBoard.adminLogout();
         })
-
+    })
         test('Availability of app creators search box by firstname and username',async()=>{
 
             await test.step('Naviagate to the loginpage',async()=>{
@@ -94,8 +94,6 @@ test.describe('User Management',()=>{
             await test.step('Logout from the system',async()=>{
                 await dashBoard.adminLogout();
             })
-    })
-
     })
     
 })

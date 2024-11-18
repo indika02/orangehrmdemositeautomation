@@ -70,7 +70,7 @@ test.describe('SP provisioning',()=>{
         })
 
         await test.step('Enter the basic app details',async()=>{
-            await spProvisioning.enterBasicAppDetails('iad4','uerikdklfjlweiokrld','127.0.0.1',"8801234123443","8801234123444");
+            await spProvisioning.enterBasicAppDetails('iajd4','uerikdklfjlweiokrld','127.0.0.1',"8801234123443","8801234123444");
         })
 
         await test.step('Click next button',async()=>{
@@ -94,7 +94,11 @@ test.describe('SP provisioning',()=>{
         })
 
         await test.step('Click next button',async()=>{
-            await spProvisioning.clickNextButton();
+            await spProvisioning.clickNextButton2();
+        })
+
+        await test.step('Enter the SMS keyword',async()=>{
+            await spProvisioning.enterSMSKeyword('531');
         })
 
         // await test.step('Click home icon',async()=>{

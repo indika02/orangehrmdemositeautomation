@@ -11,10 +11,11 @@ class SPProvisioning{
         this.whiteListedno='//*[@id="appCreateWizard"]/div/div[2]/div[2]/div[1]/div/div/div/span[1]/div/div/div[5]/div[1]/span/div/textarea';
         this.blackListedno='//*[@id="appCreateWizard"]/div/div[2]/div[2]/div[1]/div/div/div/span[1]/div/div/div[5]/div[2]/span/div/textarea';
         this.buttonNext='#appCreateWizard > div > div.modal-content > div.modal-footer > div > button.btn.app-view-modal__btn--approve';
+        this.buttonNext2='//*[@id="appCreateWizard"]/div/div[2]/div[3]/div/button[3]';
         this.smsApi='#appCreateWizard > div > div.modal-content > div.modal-body > div:nth-child(2) > div > div > div:nth-child(2) > div.row.app-creating-modal__api-components > div.col-md-3.col-sm-3.api-option-sms > div > img';
         this.ussdApi='#appCreateWizard > div > div.modal-content > div.modal-body > div:nth-child(2) > div > div > div:nth-child(2) > div.row.app-creating-modal__api-components > div.col-md-3.col-sm-3.api-option-ussd > div > img';
-        this.msgUrl='//*[@id="false"]';
-
+        this.msgUrl='/html/body/div[1]/div/div/div/div[2]/span/div[1]/div/div[2]/div[2]/div[3]/div/div/div[2]/div[1]/div[2]/div/div/div/span/div/input';
+        this.smsKeyword='//*[@id="keyword"]';
 
     }
 
@@ -36,14 +37,24 @@ class SPProvisioning{
         await  this.page.waitForTimeout(4000);
     }
 
+    async clickNextButton2(){
+        await this.page.click(this.buttonNext2);
+        await  this.page.waitForTimeout(4000);
+    }
+
+
     async selectApi(){
         await this.page.click(this.smsApi);
         await this.page.click(this.ussdApi);
     }
 
-    async enterMsgUrl(msgUrl){
-        await this.page.locator(this.msgUrl).fill(msgUrl);
+    async enterMsgUrl(msgurl){
+        await this.page.locator(this.msgUrl).fill(msgurl);
        
+    }
+
+    async enterSMSKeyword(smsKeyword){
+        await this.page.locator(locator.smsKeyword).fill(smsKeyword);
     }
 }
 
