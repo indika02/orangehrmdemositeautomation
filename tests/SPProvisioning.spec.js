@@ -20,7 +20,7 @@ test.describe('SP provisioning',()=>{
       
         const context = await browser.newContext();
         page = await context.newPage();
-        
+    
         commonPage = new Common(page);
         loginPage = new Loginpage(page);
         dashBoard = new DashBoard(page);
@@ -57,6 +57,7 @@ test.describe('SP provisioning',()=>{
         await test.step('Naviagate to the loginpage',async()=>{
             await commonPage.goto();
         })
+
         await test.step('Login to the user account by using valid credentials',async()=>{
             await loginPage.login(testData.validCredentials['sp-user'].username,testData.validCredentials['sp-user'].password);
         })

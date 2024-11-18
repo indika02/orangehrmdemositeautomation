@@ -11,6 +11,7 @@ class Usermanagement{
         this.filterIcon='//*[@id="root"]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/span/a/i';
         this.filterByUsername='#root > div > div > div.wrapper > div > div > div.search-bar.row > div.col-md-6 > div.col-xs-2.search-input.filtering-method > span > ul > li:nth-child(2) > a';
         this.userDetailsRow='#root > div > div > div.wrapper > div > div > div.list-view > div > div > table > tbody > tr:nth-child(1)';
+        this.firstRowofTable='//*[@id="root"]/div/div/div[2]/div/div/div[2]/div/div/table/tbody/tr[1]';
     }
 
 
@@ -38,6 +39,11 @@ class Usermanagement{
     async viewUserDetails(){
         await this.page.click(this.userDetailsRow);
         // await this.page.waitForTimeout(6000);
+    }
+
+    async viewSpuserDetails(){
+        await this.page.click(this.firstRowofTable);
+        await this.page.waitForTimeout(6000);
     }
 
 }

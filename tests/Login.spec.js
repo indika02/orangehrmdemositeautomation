@@ -104,5 +104,22 @@ test.describe('Login page',()=>{
 
     })
 
+    test('verify the account verified or not',async()=>{
+        await test.step('Naviagate to the loginpage',async()=>{
+            await commonPage.goto();
+        })
 
+        await test.step('Login to the user account by using valid credentials',async()=>{
+            await loginPage.login(testData.validCredentials['sp-user'].username,testData.validCredentials['sp-user'].password);
+        })
+
+        await test.step('Go to the settings page',async()=>{
+            await dashBoard.clickSettings();
+        })
+       
+        await test.step('Verify the Account verification message',async()=>{
+            await dashBoard.verifyAccountVerificationMsg('Account Verification Successful');
+        })
+
+    })
 })

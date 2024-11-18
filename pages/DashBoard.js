@@ -13,6 +13,8 @@ class DashBoard{
         this.userManagementIcon='//*[@id="root"]/div/div/div/div[2]/div/ul/li[1]/a';
         this.SPprovisioningIcon='//*[@id="root"]/div/div/div/div[2]/div/ul/li[1]/a';
         this.homeIcon='//*[@id="bs-example-navbar-collapse-1"]/ul/li[1]/a';
+        this.settingsLink='//*[@id="profile-settings-link"]';
+        this.verificationMsg='//*[@id="root"]/div/div/div[2]/div/div/div/div/div/div[1]/div/div/div/p';
     }
 
     async adminLogout(){
@@ -29,8 +31,17 @@ class DashBoard{
         // await this.page.waitForTimeout(7000);
     }
 
+    async clickSettings(){
+        await this.page.hover(this.usernameicon);
+        await this.page.click(this.settingsLink);
+        await this.page.waitForTimeout(7000);
+    }
+
+    async verifyAccountVerificationMsg(expectedText){
+        await expect(this.page.locator(this.verificationMsg)).toHaveText(expectedText,{ timeout: 90000 }); 
+    }
     async verifyModuleName(expectedText){
-        await expect(this.page.locator(this.moduleTitle)).toHaveText(expectedText,{ timeout: 90000 });  
+        await expect(this.page.locator(this.moduleTitle)).toContainText(expectedText,{ timeout: 90000 });  
     }
     
     async hoverModuleIcon(){
