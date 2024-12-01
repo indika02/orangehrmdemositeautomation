@@ -21,7 +21,7 @@ test.describe('Login page',()=>{
         dashBoard = new DashBoard(page);
     });
 
-    // test.describe.configure({ mode: 'serial' });
+    test.describe.configure({ mode: 'serial' });
     
     test('SDP Admin can be able to login successfully by using valid credentials',async()=>{
 

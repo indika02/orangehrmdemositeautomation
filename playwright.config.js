@@ -34,6 +34,7 @@ module.exports = defineConfig({
       // Additional launch options if needed
       slowMo: 50, // Optional: slows down the browser for better debugging
     },
+    timeout: 120000,
   },
 
   /* Configure projects for major browsers */

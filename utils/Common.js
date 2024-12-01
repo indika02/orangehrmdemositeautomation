@@ -1,4 +1,6 @@
 const testData = require('../config/test-data.json');
+const { expect } = require('@playwright/test');
+const { timeout } = require('../playwright.config');
 
 class Common{
 
@@ -14,6 +16,21 @@ class Common{
 
     async clearTextBox(locator){
         await this.page.locator(locator).fill('');
+    }
+
+    async type(locator,text){
+        await this.page.fill(locator,text);
+    }
+
+    async hoverbtn(locator){
+        await this.page.hover(locator);
+    }
+    async clickbutton(locator){
+        await this.page.click(locator);
+    }
+
+    async verifyText(locator,text){
+        await expect(this.page.locator(locator)).toHaveText(text,{ timeout: 90000 });
     }
 }
 

@@ -1,9 +1,11 @@
 const { expect } = require('@playwright/test');
+const {Common} = require('../utils/Common');
 
 class Loginpage{
 
     constructor(page){
         this.page=page;
+        this.commonPage = new Common(page);
         this.username='#username';
         this.password='#password';
         this.loginbutton='#fm1 > div > div > button';
@@ -11,14 +13,14 @@ class Loginpage{
     }
 
     async login(username,password){
-        await this.page.fill(this.username,username);
-        await this.page.fill(this.password,password);
-        await this.page.click(this.loginbutton);
-        await  this.page.waitForTimeout(7000);
+        await this.commonPage.type(this.username,username);
+        await this.commonPage.type(this.password,password);
+        await this.commonPage.clickbutton(this.loginbutton);
+        await this.page.waitForTimeout(7000);
     }
 
     async verifyLogoutPageAlert(expectedText) {
-        await expect(this.page.locator(this.loginpageAlert)).toHaveText(expectedText, { timeout: 90000 });
+        await this.commonPage.verifyText(this.loginpageAlert,expectedText);
     }
 }
 
