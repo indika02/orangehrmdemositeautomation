@@ -17,6 +17,7 @@ class DashBoard{
         this.homeIcon='//*[@id="bs-example-navbar-collapse-1"]/ul/li[1]/a';
         this.settingsLink='//*[@id="profile-settings-link"]';
         this.verificationMsg='//*[@id="root"]/div/div/div[2]/div/div/div/div/div/div[1]/div/div/div/p';
+        this.completeBtn='//*[@id="root"]/div/div/div/div[2]/div/div/div/div/div/div[2]/button';
     }
 
     async adminLogout(){
@@ -61,6 +62,10 @@ class DashBoard{
 
     async clickHomeIcon(){
         await this.commonPage.clickbutton(this.homeIcon);
+    }
+
+    async clickCompleteBtn(){
+        await this.commonPage.clickbutton(this.completeBtn);
     }
 }
 

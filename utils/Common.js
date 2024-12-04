@@ -32,8 +32,15 @@ class Common{
     async verifyText(locator,text){
         await expect(this.page.locator(locator)).toHaveText(text,{ timeout: 90000 });
     }
+
+    async enterTexthroughLabel(labelname,text){
+        await this.page.getByLabel(labelname).fill(text);
+    }
+
+    async selectitem(locator,item){
+        await this.page.locator(locator).selectOption(item);
+    }
+
 }
-
-
 
 module.exports={Common};

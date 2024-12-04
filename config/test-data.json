@@ -1,11 +1,16 @@
 {
     "validCredentials": {
-        "sdp-admin": {
-      "username": "robi.admin3",
-      "password": "Testdata#2345"
+
+      "sdp-admin": {
+            "username": "robi.admin3",
+            "password": "Testdata#2345"
         },
         "sp-user":{
             "username":"indika04",
+            "password":"Indika12@#"
+        },
+        "new-sp":{
+            "username":"indika6",
             "password":"Indika12@#"
         },
         "customer-care-admin":{

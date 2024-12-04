@@ -17,7 +17,6 @@ test.describe('User Management',()=>{
       
         const context = await browser.newContext();
         page = await context.newPage();
-        
         commonPage = new Common(page);
         loginPage = new Loginpage(page);
         dashBoard = new DashBoard(page);
