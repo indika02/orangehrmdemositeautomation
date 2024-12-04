@@ -22,6 +22,12 @@ class Common{
         await this.page.fill(locator,text);
     }
 
+    async keyboardtype(locator,text){
+        const divLocator = this.page.locator(locator);
+        await divLocator.click(); 
+        await this.page.keyboard.type(text);
+    }
+
     async hoverbtn(locator){
         await this.page.hover(locator);
     }

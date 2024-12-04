@@ -48,6 +48,42 @@ test('Filling the organization details form',async()=>{
         await test.step('Select the industry',async()=>{
             await completeprofilepage.selectIndustry('IT');
         })
+
+        await test.step('Enter the Contact numbers',async()=>{
+            await completeprofilepage.enterContactno('880123458585');
+        })
+
+        await test.step('Enter the Fax number',async()=>{
+            await completeprofilepage.enterContactno('880123458585');
+        })
+
+        await test.step('Select the Country',async()=>{
+            await completeprofilepage.selectCountry('Bangladesh');
+        })
+
+        await test.step('Select the Division',async()=>{
+            await completeprofilepage.selectDivision('Rajshahi');
+        })
+
+        await test.step('Select the District',async()=>{
+            await completeprofilepage.selectDistrict('Barguna');
+        })
+
+        await test.step('Enter the Postal code',async()=>{
+            await completeprofilepage.enterPostalCode('50003');
+        })
+
+        await test.step('Enter the Address',async()=>{
+            await completeprofilepage.enterAddress('fdfldgs');
+        })
+
+        await test.step('Enter the Contact person name',async()=>{
+            await completeprofilepage.enterContactpersonname('fdfdsbv');
+        })
+
+        await test.step('Enter the birth day',async()=>{
+            await completeprofilepage.enterBirthday('2000-01-10');
+        })
     })
 
 })
