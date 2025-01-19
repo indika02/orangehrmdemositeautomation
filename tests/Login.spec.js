@@ -23,102 +23,63 @@ test.describe('Login page',()=>{
 
     test.describe.configure({ mode: 'serial' });
     
-    // test('SDP Admin can be able to login successfully by using valid credentials',async()=>{
-
-    //     await test.step('Naviagate to the loginpage',async()=>{
-    //         await commonPage.goto();
-    //     })
-
-    //     await test.step('Login to the user account by using valid credentials',async()=>{
-    //         await loginPage.login(testData.validCredentials['sdp-admin'].username,testData.validCredentials['sdp-admin'].password);
-    //     })
-
-    //     await test.step('Verify the successful login',async()=>{
-    //         await dashBoard.verifyModuleName('User Management');
-    //     }) 
-
-    //     await test.step('Logout from the system',async()=>{
-    //         await dashBoard.adminLogout();
-    //     })
-
-    //     await test.step('Verify logout alert message',async()=>{
-    //         await loginPage.verifyLogoutPageAlert('You have successfully logout from the system');
-    //     })
-    // })
-
-    test('SP user can be able to login successfully by using valid credentials',async()=>{
+    test('Admin can login to the system by using valid user credentials',async()=>{
 
         await test.step('Naviagate to the loginpage',async()=>{
             await commonPage.goto();
         })
 
         await test.step('Login to the user account by using valid credentials',async()=>{
-            await loginPage.login(testData.validCredentials['sp-user'].username,testData.validCredentials['sp-user'].password);
+            await loginPage.login(testData.validCredentials["admin"].username,testData.validCredentials["admin"].password);
         })
 
         await test.step('Verify the successful login',async()=>{
-            await dashBoard.verifyModuleName('Provisioning');
-        }) 
-
-        await test.step('Logout from the system',async()=>{
-            await dashBoard.spLogout();
+            await dashBoard.verifyLogin('Dashboard');
         })
-        await test.step('Verify logout alert message',async()=>{
-            await loginPage.verifyLogoutPageAlert('You have successfully logout from the system');
+
+        await test.step('Click the username icon in navigation bar',async()=>{
+            await dashBoard.hoverusernamedropdown();
+        })
+        await test.step('Logout from the system',async()=>{
+            await dashBoard.Logout();
         })
     })
 
-    // test('Customer-care admin can be able to login successfully by using valid credentials',async()=>{
-
-    //     await test.step('Naviagate to the loginpage',async()=>{
-    //         await commonPage.goto();
-    //     })
-
-    //     await test.step('Login to the user account by using valid credentials',async()=>{
-    //         await loginPage.login(testData.validCredentials['customer-care-admin'].username,testData.validCredentials['customer-care-admin'].password);
-    //     })
-
-    //     await test.step('Verify the successful login',async()=>{
-    //         await dashBoard.verifyModuleName('Reporting');
-    //     }) 
-
-    //     await test.step('Logout from the system',async()=>{
-    //         await dashBoard.adminLogout();
-    //     })
-    //     await test.step('Verify logout alert message',async()=>{
-    //         await loginPage.verifyLogoutPageAlert('You have successfully logout from the system');
-    //     })
-    // })
-
-    test('login to the system by using invalid username and password',async()=>{
+    test('Verify the forgot password functionality',async()=>{
 
         await test.step('Naviagate to the loginpage',async()=>{
             await commonPage.goto();
         })
-        await test.step('Login to the user account by using invalid credentials',async()=>{
-            await loginPage.login(testData.invalidCredentials.username,testData.invalidCredentials.password);
-        })
-        await test.step('Verify logout alert message',async()=>{
-            await loginPage.verifyLogoutPageAlert('Username or password you have entered is incorrect. Please try again.');
+
+        await test.step('Click the forgot password link',async()=>{
+            await loginPage.clickForgotPassword();
         })
 
+        await test.step('Enter the username in username text box',async()=>{
+            await loginPage.enterUsername('Indika');
+        })
+
+        await test.step('Click Reset password Button',async()=>{
+            await loginPage.ClickresetpasswordBtn();
+        })
+
+        await test.step('Verify the message for reset email sent to the user email',async()=>{
+            await loginPage.verifyresetpwdemail('Reset Password link sent successfully');
+        })
     })
 
-    test('verify the account verified or not',async()=>{
+    test('Verify the Invalid user login alert message',async()=>{
+
         await test.step('Naviagate to the loginpage',async()=>{
             await commonPage.goto();
         })
 
         await test.step('Login to the user account by using valid credentials',async()=>{
-            await loginPage.login(testData.validCredentials['sp-user'].username,testData.validCredentials['sp-user'].password);
+            await loginPage.login(testData.invalidCredentials.username,testData.invalidCredentials.password);
         })
 
-        await test.step('Go to the settings page',async()=>{
-            await dashBoard.clickSettings();
-        })
-       
-        await test.step('Verify the Account verification message',async()=>{
-            await dashBoard.verifyAccountVerificationMsg('Account Verification Successful');
+        await test.step('Verify the login error message',async()=>{
+            await loginPage.verifyLoginError('Invalid credentials');
         })
 
     })

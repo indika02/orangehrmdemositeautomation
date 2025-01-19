@@ -21,43 +21,26 @@ test.describe('Dash Board',()=>{
         dashBoard = new DashBoard(page);
     });
 
-    test('Verify the modules when click the modules Icon',async()=>{
+    test('Verify the Search functionality of left navigation bar in dashboard',async()=>{
 
         await test.step('Naviagate to the loginpage',async()=>{
             await commonPage.goto();
         })
+
         await test.step('Login to the user account by using valid credentials',async()=>{
-            await loginPage.login(testData.validCredentials['sdp-admin'].username,testData.validCredentials['sdp-admin'].password);
+            await loginPage.login(testData.validCredentials["admin"].username,testData.validCredentials["admin"].password);
         })
 
-        await test.step('Verify the successful login',async()=>{
-            await dashBoard.verifyModuleName('User Management');
-        })
-        
-        await test.step('click the modules icons in navigation bar',async()=>{
-            await dashBoard.hoverModuleIcon();
-        })
-        await test.step('Logout from the system',async()=>{
-            await dashBoard.adminLogout();
-        })
-    })
-
-    test('Availability of User management portal',async()=>{
-
-        await test.step('Naviagate to the loginpage',async()=>{
-            await commonPage.goto();
-        })
-        await test.step('Login to the user account by using valid credentials',async()=>{
-            await loginPage.login(testData.validCredentials['sdp-admin'].username,testData.validCredentials['sdp-admin'].password);
+        await test.step('Enter a text in search box',async()=>{
+            await dashBoard.searchFunction('Dashboard');
         })
 
-        
-        await test.step('Click the user management icon',async()=>{
-            await dashBoard.clickUserManagementIcon();
+        await test.step('Click the username icon in navigation bar',async()=>{
+            await dashBoard.hoverempusernamedropdown();
         })
 
         await test.step('Logout from the system',async()=>{
-            await dashBoard.adminLogout();
+            await dashBoard.Logout();
         })
     })
 })

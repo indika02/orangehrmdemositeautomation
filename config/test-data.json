@@ -1,33 +1,21 @@
 {
     "validCredentials": {
 
-      "sdp-admin": {
-            "username": "robi.admin3",
-            "password": "Testdata#2345"
+      "admin": {
+            "username": "Admin",
+            "password": "admin123"
         },
-        "sp-user":{
-            "username":"indika04",
-            "password":"Indika12@#"
-        },
-        "new-sp":{
-            "username":"indika6",
-            "password":"Indika12@#"
-        },
-        "customer-care-admin":{
-            "username":"ccadminx",
-            "password":"Testdata@09876"
-        },
-        "read-only-admin":{
-            "username":"",
-            "password":""
-        }
+      "employer": {
+        "username": "indika",
+        "password": "12@#ASdf"
+      }
     },
     "invalidCredentials": {
       "username": "dfgfdfsdsds",
       "password": "Testdata#1234523"
     },
     "urls": {
-      "loginUrl": "https://robisdpup.hsenidmobile.com/cas/login"
+      "loginUrl": "https://opensource-demo.orangehrmlive.com/"
     }
   }
   

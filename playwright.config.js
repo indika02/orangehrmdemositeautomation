@@ -32,15 +32,14 @@ module.exports = defineConfig({
     headless: true, // Runs the browser in a visible mode
     launchOptions: {
       // Additional launch options if needed
-      slowMo: 50, // Optional: slows down the browser for better debugging
+      slowMo: 0, // Optional: slows down the browser for better debugging
     },
-    timeout: 120000,
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: 'Chromium - Incognito',
       use: { ...devices['Desktop Chrome'] },
     },
 

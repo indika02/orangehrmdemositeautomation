@@ -47,6 +47,14 @@ class Common{
         await this.page.locator(locator).selectOption(item);
     }
 
+    async uploadFile(locator,item){
+        await this.page.locator(locator).setInputFiles(item);
+    }
+
+    async enterTextthroughPlaceholder(locator,text){
+        await this.page.getByPlaceholder(locator).fill(text);
+    }
+
 }
 
 module.exports={Common};
