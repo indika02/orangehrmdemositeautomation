@@ -43,7 +43,7 @@ npm install
 ```
 
 ### 3. Configure Environment
-Set up environment variables in `.env` or `playwright.config.ts`:
+Set up environment variables in `.env` or `playwright.config.js`:
 ```ts
 const config = {
   use: {
