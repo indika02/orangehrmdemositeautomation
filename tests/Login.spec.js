@@ -83,4 +83,16 @@ test.describe('Login page',()=>{
         })
 
     })
+
+    test('Verify the Footer text is correct',async()=>{
+        await test.step('Navigate to the login page',async()=>{
+            await commonPage.goto();
+        })
+        
+        await test.step('Verify the Footer Text',async()=>{
+            await loginPage.verifyFooterText('OrangeHRM OS 5.7');
+        })
+    })
+
+    
 })

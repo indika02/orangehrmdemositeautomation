@@ -14,6 +14,8 @@ class Loginpage{
         this.resetPwdBtn='//*[@id="app"]/div[1]/div[1]/div/form/div[2]/button[2]';
         this.resetpwdconfirmmsg='//*[@id="app"]/div[1]/div[1]/div/h6';
         this.loginErrormsg='//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]/div[1]/p';
+        this.loginPageFooterText='//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[3]/div[2]/p[1]';
+
     }
 
     async login(username,password){
@@ -41,6 +43,10 @@ class Loginpage{
 
     async verifyLoginError(error){
         await this.commonPage.verifyText(this.loginErrormsg,error);
+    }
+
+    async verifyFooterText(footerText){
+        await this.commonPage.verifyText(this.loginPageFooterText,footerText);
     }
 
 }
